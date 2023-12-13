@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Manipulation Example</title>
+    <style>
+        /* CSS styles for demonstration */
+        .original-text {
+            color: blue;
+            font-weight: bold;
+        }
+        .changed-text {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <p class="original-text">This is the original text.</p>
+    <button onclick="changeText()">Change Text</button>
+
+    <script>
+        function changeText() {
+            let paragraph = document.querySelector('.original-text');
+            paragraph.textContent = "Text has been changed!";
+            paragraph.classList.remove('original-text');
+            paragraph.classList.add('changed-text');
+        }
+    </script>
+</body>
+</html>
