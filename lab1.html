@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation</title>
+</head>
+<body>
+<h2>Contact Form</h2>
+<form>
+Name:<input type="text" id="name" name="name"><br>
+Email:<input type="text" id="email" name="email"><br>
+Mobile Number:<input type="text" id="mobile" name="mobile"><br>
+Gender:<input type="radio" id="male" name="gender"value="male">Male
+<input type="radio" id="female" name="gender" value="female">Female<br>
+Hobbies: Reading<input type="checkbox" id="reading" name="hobbies"
+value="reading">
+Gaming<input type="checkbox" id="gaming" name="hobbies" value="gaming">
+<br>
+<input type="submit" value="Submit" onclick="val()">
+</form>
+<script>
+function val()
+{
+var name = document.getElementById('name').value;
+var email = document.getElementById('email').value;
+var mobile = document.getElementById('mobile').value;
+if (name.trim()==''||email.trim()==''||mobile.trim()=='') {
+alert('Please fill out all fields.');
+return;
+}
+var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if (!emailRegex.test(email)) {
+alert('Please enter a valid email address.');
+return;
+}
+if (mobile.length !== 10 || isNaN(mobile)) {
+alert('Please enter a valid 10-digit mobile number.');
+return;
+}
+console.log('Form submitted successfully!');
+}
+</script>
+</body>
+</html>
