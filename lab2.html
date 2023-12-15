@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Math Expression Evaluator</title>
+</head>
+<body>
+<h2>Math Expression Evaluator</h2>
+<form>
+Enter a Mathematical Expression:<input type="text" id="expression" name="expression"><br>
+<input type="submit" value="Evaluate" onClick="evaluateExpression()">
+</form>
+<script>
+function evaluateExpression() {
+var expressionInput=document.getElementById('expression').value;
+var res=eval(expressionInput);
+document.write("Result="+res);
+}
+</script>
+</body>
+</html>
