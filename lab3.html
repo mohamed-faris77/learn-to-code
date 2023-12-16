@@ -1,0 +1,43 @@
+<head>
+  <title>Dynamic Effects Page</title>
+  <style>
+  body {
+  margin: 0;
+  overflow: hidden;
+  }
+  .layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+  }
+  #layer1 {
+  transform: translateY(-100%);
+  background-color:red;
+  }
+  #layer2 {
+  transform: translateY(100%);
+  background-color:green;
+  }
+  </style>
+  </head>
+  <body>
+    <div class="layer" id="layer1"></div>
+    <div class="layer" id="layer2"></div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    // Animate layers on page load
+    animateLayer('layer1', 0);
+    animateLayer('layer2', 0);
+  });
+function animateLayer(layerId, delay) {
+var layer = document.getElementById(layerId);
+// Use setTimeout to create a delay before applying the animation
+setTimeout(function() {
+// Apply animation by setting transform to translateY(0)
+layer.style.transform = 'translateY(0)';
+}, delay);
+}
+</script>
+</body>
+</html>
