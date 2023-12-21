@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Current Date in Words</title>
+</head>
+<body>
+<h2>Current Date in Words</h2>
+<p id="currentDate"></p>
+<script>
+// Array of month names
+var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+'September', 'October', 'November', 'December'];
+// Get the current date
+var currentDate = new Date();
+// Get day, month, and year components
+var day = currentDate.getDate();
+var monthIndex = currentDate.getMonth();
+var year = currentDate.getFullYear();
+// Get the month name from the array
+var monthName = monthNames[monthIndex];
+// Display the current date in words
+var currentDateInWords = 'Today is ' + monthName + ' ' + day + ', ' + year;
+document.getElementById('currentDate').innerText = currentDateInWords;
+</script>
+</body>
+</html>
