@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Student Information Form</title>
+</head>
+<body>
+<h2>Student Information</h2>
+<form>
+Name:<input type="text" id="name" name="name">
+Math Score:<input type="number" id="math" name="math">
+Science Score:<input type="number" id="science" name="science">
+English Score:<input type="number" id="english" name="english" required>
+<input type="button" value="Calculate" onclick="calculateResults()">
+</form>
+<h3>Results:</h3>
+<p>Total Score: <span id="total"></span></p>
+<p>Average Score: <span id="average"></span></p>
+<p>Result: <span id="result"></span></p>
+<p>Grade: <span id="grade"></span></p>
+<script>
+function calculateResults() {
+var math = parseFloat(document.getElementById('math').value);
+var science = parseFloat(document.getElementById('science').value);
+var english = parseFloat(document.getElementById('english').value);
+// Validate if the scores are valid numbers
+if(isNaN(math) || isNaN(science) || isNaN(english)){
+alert('Please enter valid numeric scores.');
+return;
+}
+// Calculate total, average, result, and grade
+var total = math + science + english;
+var average = total / 3;
+var result = (average >= 40) ? 'Pass' : 'Fail';
+var grade;
+if (average >= 90) {
+grade = 'A';
+} else if (average >= 80) {
+grade = 'B';
+} else if (average >= 70) {
+grade = 'C';
+} else if (average >= 60) {
+grade = 'D';
+} else {
+grade = 'F';
+}
+document.getElementById('total').innerText = total;
+document.getElementById('average').innerText = average.toFixed(2);
+document.getElementById('result').innerText = result;
+document.getElementById('grade').innerText = grade;
+}
+</script>
+</body>
+</html>
