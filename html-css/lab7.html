@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Employee Information Form</title>
+</head>
+<body>
+<h2>Employee Information</h2>
+<form>
+Employee Name:<input type="text" id="employeeName"
+name="employeeName"><br>
+Basic Salary:<input type="number" id="basicSalary" name="basicSalary"><br>
+HRA Percentage:<input type="number" id="hraPercentage"
+name="hraPercentage"><br>
+DA Percentage:<input type="number" id="daPercentage" name="daPercentage"><br>
+Tax Percentage:<input type="number" id="taxPercentage" name="taxPercentage"
+required><br>
+<input type="button" value="Calculate" onclick="calculateSalary()">
+</form>
+<h3>Salary Details:</h3>
+<p>DA: <span id="da"></span></p>
+<p>HRA: <span id="hra"></span></p>
+<p>PF: <span id="pf"></span></p>
+<p>TAX: <span id="tax"></span></p>
+<p>Gross Pay: <span id="grossPay"></span></p>
+<p>Deduction: <span id="deduction"></span></p>
+<p>Net Pay: <span id="netPay"></span></p>
+<script>
+function calculateSalary() {
+var basicSalary = parseFloat(document.getElementById('basicSalary').value);
+var hraPercentage = parseFloat(document.getElementById('hraPercentage').value);
+var daPercentage = parseFloat(document.getElementById('daPercentage').value);
+var taxPercentage = parseFloat(document.getElementById('taxPercentage').value);
+if (isNaN(basicSalary) || isNaN(hraPercentage) || isNaN(daPercentage) ||
+isNaN(taxPercentage)) {
+alert('Please enter valid numeric values.');
+return;
+}
+var da = (daPercentage / 100) * basicSalary;
+var hra = (hraPercentage / 100) * basicSalary;
+var pf = 0.12 * basicSalary; // Assuming PF is 12% of basic salary
+var tax = (taxPercentage / 100) * basicSalary;
+var grossPay = basicSalary + da + hra;
+var deduction = pf + tax;
+var netPay = grossPay - deduction;
+// Display the results on the page
+document.getElementById('da').innerText = da.toFixed(2);
+document.getElementById('hra').innerText = hra.toFixed(2);
+document.getElementById('pf').innerText = pf.toFixed(2);
+document.getElementById('tax').innerText = tax.toFixed(2);
+document.getElementById('grossPay').innerText = grossPay.toFixed(2);
+document.getElementById('deduction').innerText = deduction.toFixed(2);
+document.getElementById('netPay').innerText = netPay.toFixed(2);
+}
+</script>
+</body>
+</html>
