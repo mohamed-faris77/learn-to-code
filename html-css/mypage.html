@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Webpage</title>
+  <style>
+    /* Basic reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+main {
+  padding: 20px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Responsive Webpage</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Welcome to my Website</h2>
+      <p>My name is Mohamed Faris</p>
+      <button id="clickButton">Click Me</button>
+    </section>
+  </main>
+
+  <footer>
+    <p>Footer - &copy; 2023</p>
+  </footer>
+
+  <script>
+    // Example JavaScript for interactivity
+const clickButton = document.getElementById('clickButton');
+clickButton.addEventListener('click', function() {
+  alert('Button Clicked!');
+});
+
+  </script>
+</body>
+</html>
