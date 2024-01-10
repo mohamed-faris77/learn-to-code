@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Color Changer</title>
+  <style>
+	body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+
+<button id="colorButton">Change Color</button>
+
+<script>
+const colorButton = document.getElementById('colorButton');
+const colors = ['red', 'green', 'blue', 'yellow', 'orange'];
+let currentIndex = 0;
+
+colorButton.addEventListener('click', function() {
+  document.body.style.backgroundColor = colors[currentIndex];
+  currentIndex = (currentIndex + 1) % colors.length;
+});
+</script>
+</body>
+</html>
