@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Selector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .selector {
+      text-align: center;
+    }
+    .selector button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="selector">
+    <h2>Select Your Role</h2>
+    <button id="userButton">Sign-in</button>
+    <button id="adminButton">Sign-up</button>
+  </div>
+</div>
+
+<script>
+  const userButton = document.getElementById('userButton');
+  const adminButton = document.getElementById('adminButton');
+
+  userButton.addEventListener('click', function() {
+    window.location.href = 'user/user.html'; // Replace with the path to your user login page
+  });
+
+  adminButton.addEventListener('click', function() {
+    window.location.href = 'admin/admin.html'; // Replace with the path to your admin login page
+  });
+</script>
+
+</body>
+</html>
