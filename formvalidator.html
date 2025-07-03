@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Form Validator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm" onsubmit="validateForm(event)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function validateForm(event) {
+      event.preventDefault(); // Prevents the form from submitting by default
+
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username.trim() === "") {
+        alert("Username cannot be empty");
+        return;
+      }
+
+      if (password.trim() === "") {
+        alert("Password cannot be empty");
+        return;
+      }
+
+      // If the form passes validation, you can proceed with further actions or submit the form
+      alert("Form submitted successfully!");
+    }
+  </script>
+</body>
+</html>

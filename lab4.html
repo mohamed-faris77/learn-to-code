@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Sum of N Natural Numbers</title>
+</head>
+<body>
+<h2>Sum of N Natural Numbers</h2>
+<p>Enter a positive integer N:</p>
+<input type="number" id="inputNumber">
+<button onclick="calculateSum()">Calculate Sum</button>
+<p id="result"></p>
+<script>
+function calculateSum() {
+var n = document.getElementById('inputNumber').value;
+if (n <= 0) {
+alert('Please enter a positive integer.');
+return;
+}
+n = Number(n);
+// Calculate the sum using the formula for the sum of first N natural numbers
+var sum = (n * (n + 1)) / 2;
+document.getElementById('result').innerHTML = 'Sum of first ' + n + ' natural numbers is: ' + sum;
+}
+</script>
+</body>
+</html>
