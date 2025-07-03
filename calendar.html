@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Calendar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+    table {
+      border-collapse: collapse;
+      width: 300px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #007bff;
+      color: #fff;
+    }
+    td:hover {
+      background-color: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <table id="calendar">
+    <thead>
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+    </thead>
+    <tbody id="calendar-body"></tbody>
+  </table>
+
+  <script>
+    // Function to generate the calendar for the current month
+    function generateCalendar() {
+      const calendarBody = document.getElementById("calendar-body");
+      calendarBody.innerHTML = "";
+
+      const currentDate = new Date();
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth();
+
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+
+      let date = new Date(firstDay);
+      let dayCounter = 1;
+
+      // Create rows and cells for the calendar
+      for (let i = 0; i < 6; i++) {
+        const row = document.createElement("tr");
+
+        for (let j = 0; j < 7; j++) {
+          const cell = document.createElement("td");
+
+          if (i === 0 && j < firstDay.getDay()) {
+            // Empty cells before the first day of the month
+            cell.textContent = "";
+          } else if (date <= lastDay) {
+            // Fill in the cells with the day of the month
+            cell.textContent = date.getDate();
+            date.setDate(date.getDate() + 1);
+          }
+
+          row.appendChild(cell);
+        }
+
+        calendarBody.appendChild(row);
+      }
+    }
+
+    // Initial generation of the calendar
+    generateCalendar();
+  </script>
+</body>
+</html>
