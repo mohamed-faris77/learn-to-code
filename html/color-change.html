@@ -1,46 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Color Changing Program</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-    }
-    button {
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-</style>
+  <meta charset="UTF-8">
+  <title>Color Changer</title>
+  <style>
+	body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+  </style>
 </head>
 <body>
 
-<h1>Color Changing Program</h1>
-<button id="changeColorBtn">Change Color</button>
+<button id="colorButton">Change The Color</button>
 
 <script>
-    // Function to generate a random hexadecimal color code
-    function getRandomColor() {
-        var letters = '0123456789ABCDEF';
-        var color = '#';
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    }
+const colorButton = document.getElementById('colorButton');
+const colors = ['red', 'green', 'blue', 'yellow', 'orange'];
+let currentIndex = 0;
 
-    // Function to change the background color of the webpage
-    function changeBackgroundColor() {
-        var newColor = getRandomColor();
-        document.body.style.backgroundColor = newColor;
-    }
-
-    // Add event listener to the button
-    document.getElementById("changeColorBtn").addEventListener("click", changeBackgroundColor);
+colorButton.addEventListener('click', function() {
+  document.body.style.backgroundColor = colors[currentIndex];
+  currentIndex = (currentIndex + 1) % colors.length;
+});
 </script>
-
 </body>
 </html>
