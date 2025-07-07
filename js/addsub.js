@@ -9,8 +9,8 @@ function subtract(a, b) {
 }
 
 
-var num1 = 10;
-var num2 = 5;
+var num1 = 20;
+var num2 = 10;
 
 
 var sum = add(num1, num2);
