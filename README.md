@@ -38,7 +38,6 @@ Optional tools:
 **Clone this repository**
    git clone https://github.com/mohamed-faris77/learn-to-code.git
 
-)
 
 🙋‍♂️ Author
 Mohamed Faris
